@@ -170,7 +170,7 @@ rsp.status=200;
 return ;	
 }
 
-
+#define WWWROOT "./wwwroot/"
 int main()
 {
 MYSQL *mysql = _order_sys::MysqlInit();
@@ -178,6 +178,7 @@ dish_table =new _order_sys::DishTable(mysql);
 order_table =new _order_sys::DishTable(mysql);
 
 httplib::Server server;
+server.set_base_dir(WWWROOT) 
 //插入菜品请求
 server.Post("/dish",InsertDish);
 //删除菜品请求
