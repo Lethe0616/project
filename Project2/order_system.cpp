@@ -1,86 +1,200 @@
 #include "order_system.hpp"
+#include "httplib.h"
+
+_order_sys::DishTable *dish_table;
+_order_sys::OrderTable *dish_table;
+
+void InsertDish(const httplib::Requst &req,httplib::Response &rsp){
+
+Json::Value dish_val;
+Json::Reader reader;
+bool ret = reader.parse(req.body,dish_val);
+if(ret==false){
+	std::cout<<"InsertDish parse json data failed!!\n";
+	rsp.status=400;
+}
+ret=dish_table->Insert(dish_val);
+if(ret==false){
+	rsp.status=500;
+	return;
+}
+rsp.status=200;
+return ;	
+}
+
+void DeleteDish(const httplib::Requst &req,httplib::Response &rsp){
+int dish_id=std::stoi(req.matches[1]);
+
+bool ret=dish_table->Delete(dish_id);
+if(ret=false){
+	std::cout<<"DeleteDish delete dish from db failed!!\n";
+	rsp.status=500;
+}
+rsp.status=200;
+return ;	
+}
+
+void UpdateDish(const httplib::Requst &req,httplib::Response &rsp){
+Json::Value dish_val;
+Json::Reader reader;
+bool ret = reader.parse(req.body,dish_val);
+if(ret==false){
+	rsp.status=400;
+}
+
+ret=dish_table->Update(dish_val);
+if(ret==false){
+	rsp.status=500;
+	return;
+}
+rsp.status=200;
+return ;	
+}
+
+void SelectOneDish(const httplib::Requst &req,httplib::Response &rsp){
+int dish_id=std::stoi(req.matches[1]);
+Json::Value dish_val;
+bool ret=dish_table->SelectOne(dish_id,&dish_val);
+if(ret==false){
+	rsp.status=500;
+	return;
+}
+
+Json::FastWriter writer;
+std::string body=write.write(dish_val);
+
+rsp.set_content(body.c_str(),body.size(),"application/json");
+rsp.status=200;
+return ;	
+}
+
+void SelectAllDish(const httplib::Requst &req,httplib::Response &rsp){
+Json::Value dish_val;
+bool ret=dish_table->SelectAll(&dish_val);
+if(ret==false){
+	rsp.status=500;
+	return;
+}
+
+std::string body;
+Json::FastWriter writer;
+body =writer.write(dishes_val);
+
+rsp.set_content(body.c_str(),body.size(),"application/json");
+rsp.status=200;
+return ;	
+}
+
+void InsertOrder(const httplib::Requst &req,httplib::Response &rsp){
+Json::Value order_val;
+Json::Reader reader;
+bool ret = reader.parse(req.body,order_val);
+if(ret==false){
+	std::cout<<"InsertOrder parse json failed!!\n";
+	rsp.status=400;
+	return;
+}
+ret=order_table->Insert(order_val);
+if(ret==false){
+	std::cout<<"InsertOrder insert data to db failed!!\n";
+	rsp.status=500;
+	return;
+}
+rsp.status=200;
+return ;	
+}
+
+void DeleteOrder(const httplib::Requst &req,httplib::Response &rsp){
+int order_id=std::stoi(req.matches[1]);
+
+bool ret=order_table->Delete(order_id);
+if(ret=false){
+	std::cout<<"DeleteOrder delete order failed!!\n";
+	rsp.status=500;
+	return ;
+}
+rsp.status=200;
+return ;	
+}
+
+void UpdateOrder(const httplib::Requst &req,httplib::Response &rsp){
+Json::Value order_val;
+Json::Reader reader;
+bool ret = reader.parse(req.body,order_val);
+if(ret==false){
+	std::cout<<"UpdateOrder parse json failed!!\n";
+	rsp.status=400;
+	return ;
+}
+
+ret=order_table->Update(order_val);
+if(ret==false){
+	std::cout<<"UpdateOrder update data to db failed!!\n";
+	return ;
+}
+rsp.status=200;
+return ;	
+}
+
+void SelectOneOrder(const httplib::Requst &req,httplib::Response &rsp){
+int order_id=std::stoi(req.matches[1]);
+Json::Value order_val;
+bool ret=order_table->SelectOne(order_id,&order_val);
+if(ret==false){
+	std::cout<<"SelectOneOrder get order info from db failed\n";
+	return ;
+}
+
+Json::FastWriter writer;
+std::string body=write.write(order_val);
+
+rsp.set_content(body.c_str(),body.size(),"application/json");
+rsp.status=200;
+return ;	
+}
+
+void SelectAllOrder(const httplib::Requst &req,httplib::Response &rsp){
+int order_id=std::stoi(req.matches[1]);
+Json::Value order_val;
+bool ret=order_table->SelectAll(order_id,&order_val);
+if(ret==false){
+	std::cout<<"SelectAllOrder get order info from db failed\n";
+	return ;
+}
+
+Json::FastWriter writer;
+std::string body=write.write(order_val);
+
+rsp.set_content(body.c_str(),body.size(),"application/json");
+rsp.status=200;
+return ;	
+}
+
 
 int main()
 {
 MYSQL *mysql = _order_sys::MysqlInit();
-if(mysql == NULL){
-return -1;
-}
+dish_table =new _order_sys::DishTable(mysql);
+order_table =new _order_sys::DishTable(mysql);
 
-_order_sys::DishTable dish_tb(mysql);
-_order_sys::OrderTable order_tb(mysql);
+httplib::Server server;
+//插入菜品请求
+server.Post("/dish",InsertDish);
+//删除菜品请求
+server.Delete("/dish",DeleteDish);
+//更新菜品请求
+server.Put("/dish",UpdateDish);
+//查询单个菜品请求 
+server.Get("/dish/num",SelectOneDish);
+//查询所有菜品请求 
+server.Get("/dish",SelectAllDish);
+//订单信息的增删改查
+server.Post("/order",InsertOrder);
+server.Delete("/order",InsertOrder);
+server.Put("/order",UpdateOrder);
+server.Get("/order",SelectOrder);
 
-/*插入菜品测试
-Json::Value dish;
-dish["name"] = "糖醋丸子";
-dish["price"] = 3900;
-dish_tb.Insert(dish);
-*/
-
-/*查询单个菜品信息
-Json::Value dish1;
-Json::StyledWriter writer;
-dish_tb.SelectOne(4, &dish1);
-std::cout << "dish:" << writer.write(dish1);
-*/
-
-/*查询多个菜品信息
-Json::Value dish2;
-Json::StyledWriter writer2;
-dish_tb.SelectOne(4, &dish2);
-std::cout << "dish:" << writer.write(dish2);
-*/
-
-
-/*更新菜品信息
-Json::Value dish3;
-dish3["id"] = 4;
-dish3["name"] = "西湖醋鱼";
-dish3["price"] = 4500;
-dish_tb.Update(dish3);
-*/
-
-/*删除菜品信息
-dish_tb.Delect(5);
-*/
-
-Json::Value order;
-Json::StyledWriter writer;
-
-/*插入订单信息
-order["table_id"] = 5;
-order["dishes"].append(4);
-order["dishes"].append(6);
-order["status"] = 0;
-order_tb.Insert(order);
-*/
-
-/*
-Json::Value order1;
-order_tb.SelectOne(1, &order1);
-std::cout << "order:" << writer.write(order1);
-*/
-
-/*
-order_tb.SelcetAll(&order);
-std::cout << "order:" << writer.write(order);
-*/
-
-/*
-order["id"] = 1;
-order["table_id"] = 3;
-order["dishes"].append(4);
-order["status"] = 0;
-order_tb.Update(order);
-*/
-
-/*删除订单
-order_tb.Delete(1);
-*/
-
+server.listen("0.0.0.0",9000);
 _order_sys::MysqlDestory(mysql);
 return 0;
 }
-
-
-
