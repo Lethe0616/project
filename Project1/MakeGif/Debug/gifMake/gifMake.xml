@@ -1,0 +1,6 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="510,413">
+    <HorizontalLayout width="400" height="400" bkimage="D:\新桌面\项目\duilib-master\bin\skin\GameRes\chatmsgbk.png">
+        <Control float="true" pos="2,4,0,0" width="505" height="34" bkcolor="#FF008080" />
+    </HorizontalLayout>
+</Window>

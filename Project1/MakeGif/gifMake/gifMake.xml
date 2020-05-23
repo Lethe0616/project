@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes" ?>
+<Window size="667,481">
+    <HorizontalLayout width="682" height="491" bkimage="D:\新桌面\项目\duilib-master\bin\skin\360SafeRes\toolbar_hover.png">
+        <Control float="true" pos="4,4,0,0" width="661" height="37" bkcolor="#FF008080" />
+        <Button float="true" pos="608,8,0,0" width="32" height="31" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="file=&apos;D:\新桌面\项目\duilib-master\bin\skin\360SafeRes\sys_dlg_min.png&apos; source=&apos;52,0,78,17&apos;" />
+        <Button float="true" pos="563,7,0,0" width="32" height="31" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="D:\新桌面\项目\duilib-master\bin\skin\GameRes\frame_btn_close_normal.bmp" />
+        <HorizontalLayout width="667" height="133">
+            <VerticalLayout width="669" height="137">
+                <Combo float="true" pos="14,51,0,0" width="62" height="30" itemtextcolor="#FF000000" itemselectedtextcolor="#FF000000" itemselectedbkcolor="#FFC1E3FF" itemhottextcolor="#FF000000" itemhotbkcolor="#FFE9F5FF" itemdisabledtextcolor="#FFCCCCCC" itemdisabledbkcolor="#FFFFFFFF" normalimage="D:\新桌面\项目\duilib-master\bin\skin\GameRes\Combo_nor.bmp" hotimage="D:\新桌面\项目\duilib-master\bin\skin\GameRes\Combo_over.bmp" dropboxsize="0,150" />
+                <Edit float="true" pos="86,51,0,0" width="168" height="33" bkcolor="#FFFFFFFF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" readonly="true" />
+                <Text text="加载" float="true" pos="265,51,0,0" width="60" height="30" bkimage="D:\新桌面\项目\duilib-master\bin\skin\GameRes\tab_normal.bmp" textpadding="2,0,2,0" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" font="5" align="centerbottomwrap" />
+                <Edit float="true" pos="70,94,0,0" width="56" height="27" bkcolor="#FFFFFFFF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Edit float="true" pos="199,94,0,0" width="56" height="27" bkcolor="#FFFFFFFF" textpadding="4,3,4,3" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" />
+                <Label text="开始" float="true" pos="12,94,0,0" width="56" height="27" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label text="截取" float="true" pos="265,94,0,0" width="60" height="30" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label text="结束" float="true" pos="140,94,0,0" width="56" height="27" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Button text="阴影" float="true" pos="493,96,0,0" width="36" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" />
+                <Button text="加粗" float="true" pos="394,96,0,0" width="36" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" hotimage="D:\新桌面\Project1\MakeGif\Debug\skin\RichListRes\downlist_ok.png" />
+                <Button text="提取" float="true" pos="393,55,0,0" width="36" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" />
+                <Button text="GIF" float="true" pos="496,55,0,0" width="36" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" />
+                <Combo float="true" pos="543,101,0,0" width="41" height="25" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" itemtextcolor="#FF000000" itemselectedtextcolor="#FF000000" itemselectedbkcolor="#FFC1E3FF" itemhottextcolor="#FF000000" itemhotbkcolor="#FFE9F5FF" itemdisabledtextcolor="#FFCCCCCC" itemdisabledbkcolor="#FFFFFFFF" dropboxsize="0,150" />
+                <Label text="颜色" float="true" pos="546,61,0,0" width="37" height="29" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Label text="字体" float="true" pos="606,61,0,0" width="37" height="29" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+                <Control float="true" pos="368,136,0,0" width="298" height="345" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\toolbar_normal.png" />
+            </VerticalLayout>
+            <Button text="斜体" float="true" pos="445,97,0,0" width="36" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" hotimage="D:\新桌面\Project1\MakeGif\Debug\skin\RichListRes\downlist_ok.png" />
+            <Button text="烧录" float="true" pos="446,55,0,0" width="36" height="32" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" normalimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" />
+            <Combo float="true" pos="603,102,0,0" width="41" height="25" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" itemtextcolor="#FF000000" itemselectedtextcolor="#FF000000" itemselectedbkcolor="#FFC1E3FF" itemhottextcolor="#FF000000" itemhotbkcolor="#FFE9F5FF" itemdisabledtextcolor="#FFCCCCCC" itemdisabledbkcolor="#FFFFFFFF" dropboxsize="0,150" />
+        </HorizontalLayout>
+        <Control float="true" pos="369,137,0,0" width="301" height="294" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\toolbar_normal.png" bkcolor="#FFFFFFFF" />
+        <Button text="提交" float="true" pos="486,448,0,0" width="53" height="22" bkimage="D:\新桌面\Project1\MakeGif\Debug\skin\360SafeRes\button_hover.png" textcolor="#FF000000" disabledtextcolor="#FFA7A6AA" align="center" />
+    </HorizontalLayout>
+</Window>

@@ -1,0 +1,12 @@
+﻿  MakeGif.cpp
+D:\新桌面\Project1\MakeGif\DuiLib\Core\UIManager.h(45,2): warning C4091: “typedef ”: 没有声明变量时忽略“DuiLib::EVENTTYPE_UI”的左侧
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(78,1): error C2059: 语法错误:“}”
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(78,1): error C2143: 语法错误: 缺少“;”(在“}”的前面)
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(78,1): error C2238: 意外的标记位于“;”之前
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(39,5): error C3861: “GenerateGifWithPic”: 找不到标识符
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(49,1): error C2440: “初始化”: 无法从“DuiLib::CComboUI *”转换为“DuiLib::CComboBoxUI *”
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(49,30): message : 从基类型到派生类型的强制转换需要 dynamic_cast 或 static_cast
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(85): error C2259: “DuiWinWnd”: 不能实例化抽象类
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(85): message : 由于下列成员:
+D:\新桌面\Project1\MakeGif\MakeGif.cpp(85): message : “LPCTSTR DuiLib::WindowImplBase::GetWindowClassName(void) const”: 是抽象的
+D:\新桌面\Project1\MakeGif\DuiLib\Utils\WinImplBase.h(35): message : 参见“DuiLib::WindowImplBase::GetWindowClassName”的声明
